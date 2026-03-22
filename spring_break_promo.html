@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5-Day SAT English Intensive — Spring Break</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#f6f4ef;--bg2:#ecefe6;--ink:#1c2118;--ink2:#3d4a35;
+    --sage:#5a7a52;--sage-lt:#7aa370;--blush:#c97b6a;
+    --sky:#5b8aaa;--butter:#c9a03a;--muted:#8a9280;
+    --border:rgba(90,122,82,0.18);--border2:rgba(90,122,82,0.1);
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'Lato',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;background:#1c2118;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:
+    radial-gradient(ellipse 70% 60% at 65% 25%,rgba(90,122,82,0.22) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 45% at 12% 78%,rgba(201,123,106,0.14) 0%,transparent 55%),
+    radial-gradient(ellipse 40% 40% at 88% 85%,rgba(91,138,170,0.12) 0%,transparent 50%)}
+  .masthead{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .masthead-logo{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.85)}
+  .masthead-badge{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.35);text-transform:uppercase}
+  .masthead-cta{font-size:12px;font-weight:700;color:#fff;background:var(--sage);padding:8px 20px;border-radius:20px;text-decoration:none;transition:background 0.2s}
+  .masthead-cta:hover{background:var(--sage-lt)}
+  .hero-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:56px 40px}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage-lt);margin-bottom:22px;display:flex;align-items:center;gap:14px}
+  .eyebrow::before,.eyebrow::after{content:'';display:block;width:36px;height:1px;background:var(--sage-lt);opacity:0.5}
+  .hero-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7.5vw,88px);font-weight:300;line-height:1.02;letter-spacing:-0.02em;margin-bottom:10px;color:#fff}
+  .hero-headline em{font-style:italic;color:var(--sage-lt)}
+  .hero-subline{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.6vw,30px);font-weight:300;font-style:italic;color:rgba(255,255,255,0.45);margin-bottom:30px}
+  .hero-desc{max-width:560px;font-size:15px;font-weight:300;color:rgba(255,255,255,0.62);line-height:1.85;margin-bottom:42px}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .btn-primary{font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#fff;background:var(--sage);padding:14px 36px;border-radius:4px;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s}
+  .btn-primary:hover{background:var(--sage-lt);transform:translateY(-1px)}
+  .btn-secondary{font-family:'Lato',sans-serif;font-size:13px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:transparent;padding:14px 36px;border-radius:4px;border:1px solid rgba(255,255,255,0.22);text-decoration:none;cursor:pointer;transition:all 0.2s}
+  .btn-secondary:hover{border-color:var(--sage-lt);color:var(--sage-lt)}
+  .hero-stats{position:relative;z-index:1;display:flex;justify-content:center;border-top:1px solid rgba(255,255,255,0.07);padding:0 60px}
+  .stat-item{flex:1;max-width:200px;text-align:center;padding:24px 14px;border-right:1px solid rgba(255,255,255,0.06)}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--sage-lt);line-height:1;margin-bottom:4px}
+  .stat-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+
+  /* TIMING BAND */
+  .timing-band{background:#fff;border-bottom:2px solid var(--bg2);padding:16px 60px;display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap}
+  .timing-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink2)}
+  .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .dot-green{background:var(--sage)}.dot-sky{background:var(--sky)}.dot-blush{background:var(--blush)}
+
+  /* 680 SECTION */
+  .section-680{background:#fff;padding:72px 60px}
+  .s680-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:60px;align-items:center}
+  .score-ring{width:220px;height:220px;border-radius:50%;border:3px solid var(--sage);background:var(--bg2);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;margin:0 auto 18px}
+  .score-ring::before{content:'';position:absolute;inset:8px;border-radius:50%;border:1px solid var(--border)}
+  .score-big{font-family:'Cormorant Garamond',serif;font-size:70px;font-weight:300;color:var(--sage);line-height:1}
+  .score-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .score-caption{font-size:12px;color:var(--muted);text-align:center;line-height:1.55;max-width:210px;margin:0 auto}
+  .s-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;display:block}
+  .s680-copy h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,40px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:18px}
+  .s680-copy h2 em{font-style:italic;color:var(--sage)}
+  .s680-copy p{font-size:14px;font-weight:300;color:var(--ink2);line-height:1.85;margin-bottom:14px}
+  .reasons{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:12px}
+  .reasons li{display:flex;gap:12px;align-items:flex-start;font-size:13px;font-weight:300;color:var(--ink2);line-height:1.65}
+  .rb{flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--sage);color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+
+  /* AP BAND */
+  .ap-band{background:linear-gradient(135deg,#eef4eb,#e6eff5);border-top:2px solid var(--border);border-bottom:2px solid var(--border);padding:40px 60px}
+  .ap-inner{max-width:1100px;margin:0 auto;display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap}
+  .ap-icon{width:52px;height:52px;border-radius:10px;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+  .ap-text h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px}
+  .ap-text p{font-size:14px;font-weight:300;color:var(--ink2);line-height:1.8}
+  .ap-text strong{font-weight:700;color:var(--sky)}
+
+  /* 1:1 TEACHING */
+  .teaching{background:var(--ink);padding:80px 60px}
+  .teaching-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .teaching-copy .s-label{color:var(--sage-lt)}
+  .teaching-copy h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,40px);font-weight:300;line-height:1.2;color:#fff;margin-bottom:20px}
+  .teaching-copy h2 em{font-style:italic;color:var(--sage-lt)}
+  .teaching-copy p{font-size:14px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.85;margin-bottom:14px}
+  .tc-cards{display:flex;flex-direction:column;gap:14px}
+  .tc-card{background:rgba(255,255,255,0.05);border:1px solid rgba(90,122,82,0.25);border-radius:8px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start}
+  .tc-icon{width:40px;height:40px;border-radius:8px;background:rgba(122,163,112,0.14);border:1px solid rgba(122,163,112,0.3);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+  .tc-card h4{font-size:13px;font-weight:700;color:rgba(255,255,255,0.88);margin-bottom:4px;letter-spacing:0.02em}
+  .tc-card p{font-size:12px;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.6;margin:0}
+
+  /* DAY PLAN */
+  .days-bg{background:var(--bg2);padding:72px 60px}
+  .days-wrap{max-width:1100px;margin:0 auto}
+  .days-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:0}
+  .day-card{background:#fff;border:1px solid var(--border2);border-radius:8px;padding:22px 16px;transition:box-shadow 0.2s,transform 0.2s}
+  .day-card:hover{box-shadow:0 6px 22px rgba(28,33,24,0.1);transform:translateY(-2px)}
+  .day-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--border);line-height:1;margin-bottom:10px}
+  .day-icon{font-size:17px;margin-bottom:7px}
+  .day-theme{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:7px}
+  .day-focus{font-size:11px;font-weight:300;color:var(--muted);line-height:1.55;margin-bottom:12px}
+  .day-tasks{display:flex;flex-direction:column;gap:4px}
+  .day-task{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.07em;color:var(--sage);padding:3px 7px;background:rgba(90,122,82,0.08);border-radius:3px}
+
+  /* FEATURES */
+  .feats-bg{background:#fff;padding:72px 60px}
+  .feats-wrap{max-width:1100px;margin:0 auto}
+  .feats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feat-card{background:var(--bg);border:1px solid var(--border2);border-radius:10px;padding:26px 22px;transition:box-shadow 0.2s}
+  .feat-card:hover{box-shadow:0 4px 18px rgba(28,33,24,0.08)}
+  .feat-icon{font-size:19px;margin-bottom:11px}
+  .feat-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:7px;line-height:1.2}
+  .feat-desc{font-size:12px;font-weight:300;color:var(--muted);line-height:1.75}
+  .feat-badge{display:inline-block;margin-top:11px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--sage);border:1px solid var(--border);background:rgba(90,122,82,0.06);padding:3px 8px;border-radius:3px}
+
+  /* QUOTE */
+  .quote-section{background:var(--bg2);padding:72px 60px;text-align:center;border-top:1px solid var(--border2)}
+  .quote-inner{max-width:720px;margin:0 auto}
+  blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.8vw,32px);font-weight:300;font-style:italic;color:var(--ink);line-height:1.55;margin-bottom:18px}
+  blockquote::before{content:'\201C';color:var(--sage)}
+  blockquote::after{content:'\201D';color:var(--sage)}
+  .quote-src{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted)}
+
+  /* PRICING */
+  .pricing-section{background:#fff;padding:80px 60px;border-top:1px solid var(--border2)}
+  .pricing-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .pricing-copy h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,42px);font-weight:400;line-height:1.2;color:var(--ink);margin-bottom:16px}
+  .pricing-copy h2 em{font-style:italic;color:var(--sage)}
+  .pricing-copy p{font-size:14px;font-weight:300;color:var(--ink2);line-height:1.85;margin-bottom:14px}
+  .contact-block{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .price-card{background:var(--bg);border:2px solid var(--sage);border-radius:12px;padding:34px 30px;position:relative}
+  .price-season{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--blush);color:#fff;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;padding:4px 16px;border-radius:20px;white-space:nowrap}
+  .price-tier{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--sage);margin-bottom:8px;margin-top:6px}
+  .price-amount{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;color:var(--ink);line-height:1;margin-bottom:4px}
+  .price-period{font-size:12px;color:var(--muted);margin-bottom:22px}
+  .price-features{list-style:none;margin-bottom:26px}
+  .price-features li{display:flex;align-items:flex-start;gap:9px;font-size:13px;font-weight:300;color:var(--ink2);padding:6px 0;border-bottom:1px solid var(--border2);line-height:1.5}
+  .price-features li::before{content:'';color:var(--sage);font-size:10px;flex-shrink:0;margin-top:2px}
+  .price-cta{display:block;width:100%;text-align:center;padding:13px;background:var(--sage);color:#fff;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;border-radius:6px}
+  .price-cta:hover{background:var(--sage-lt)}
+
+  /* SECTION COMMON */
+  .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:400;line-height:1.15;color:var(--ink);margin-bottom:16px}
+  .sec-title em{font-style:italic;color:var(--sage)}
+  .sec-desc{font-size:14px;font-weight:300;color:var(--ink2);max-width:520px;line-height:1.85;margin-bottom:40px}
+
+  /* FOOTER */
+  footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.07);padding:26px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .footer-brand{font-family:'Cormorant Garamond',serif;font-size:14px;color:rgba(255,255,255,0.35)}
+  .footer-links{display:flex;gap:28px;flex-wrap:wrap}
+  .footer-links a{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:0.1em;color:var(--sage-lt);text-decoration:none;opacity:0.75;transition:opacity 0.2s}
+  .footer-links a:hover{opacity:1}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}
+
+  @media(max-width:900px){
+    .masthead,.timing-band,.section-680,.ap-band,.teaching,.days-bg,.feats-bg,.quote-section,.pricing-section,footer{padding-left:24px;padding-right:24px}
+    .s680-inner,.teaching-inner,.pricing-inner{grid-template-columns:1fr;gap:32px}
+    .s680-inner .s680-score{display:none}
+    .days-grid{grid-template-columns:1fr 1fr}
+    .feats-grid{grid-template-columns:1fr 1fr}
+    .hero-stats{flex-wrap:wrap}
+  }
+  @media(max-width:560px){
+    .days-grid,.feats-grid{grid-template-columns:1fr}
+    .hero-headline{font-size:44px}
+    .tc-card{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <header class="masthead">
+    <div class="masthead-logo">SAT English Intensive</div>
+    <div class="masthead-badge">Premium · 5-Day Intensive</div>
+    <a href="/cdn-cgi/l/email-protection#49193b2c3927263e1a081d092e24282025672a2624" class="masthead-cta">Get Access</a>
+  </header>
+  <div class="hero-content">
+    <div class="eyebrow">Spring Break · 5 Days · 1 Goal</div>
+    <h1 class="hero-headline">Five days.<br><em>Your score.</em></h1>
+    <p class="hero-subline">The most focused SAT English sprint ever built.</p>
+    <p class="hero-desc">
+      Spring Break is the last uninterrupted stretch before AP exams arrive in May 
+      and the calendar closes. Five focused days on SAT English now means arriving 
+      at your next test date with a real, locked-in score — not another plan to study more.
+    </p>
+    <div class="hero-actions">
+      <a href="/cdn-cgi/l/email-protection#d484a6b1a4babba387958094b3b9b5bdb8fab7bbb9" class="btn-primary">Start the Intensive →</a>
+      <a href="tel:8184543879" class="btn-secondary">Call: 818-454-3879</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">15</div><div class="stat-label">Hours Total</div></div>
+    <div class="stat-item"><div class="stat-num">653</div><div class="stat-label">Vocab Words</div></div>
+    <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">Full Tests</div></div>
+    <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">1:1 Sessions</div></div>
+    <div class="stat-item"><div class="stat-num">680</div><div class="stat-label">R&amp;W Goal</div></div>
+  </div>
+</section>
+
+<!-- TIMING BAND -->
+<div class="timing-band">
+  <div class="timing-item"><div class="dot dot-green"></div><span>Spring Break — 5 days of dedicated prep</span></div>
+  <div class="timing-item"><div class="dot dot-sky"></div><span>AP Exams in May — build English before that window closes</span></div>
+  <div class="timing-item"><div class="dot dot-blush"></div><span>Premium ($149, never expires) + Intensive Add-On ($99) &nbsp;·&nbsp; Total: $248</span></div>
+</div>
+
+<!-- 680 ENGLISH FIRST -->
+<div class="section-680 reveal">
+  <div class="s680-inner">
+    <div class="s680-score">
+      <div class="score-ring">
+        <div class="score-big">680</div>
+        <div class="score-sub">R&amp;W First</div>
+      </div>
+      <p class="score-caption">Secure English first. Math gains follow naturally.</p>
+    </div>
+    <div class="s680-copy">
+      <span class="s-label">The 680 Strategy</span>
+      <h2>Why <em>English comes first.</em></h2>
+      <p>
+        Most students jump straight into math. But the fastest path to a strong SAT composite 
+        starts with securing a 680 in Reading &amp; Writing first — and there are clear, 
+        measurable reasons why.
+      </p>
+      <ul class="reasons">
+        <li>
+          <span class="rb">1</span>
+          <span><strong>English is learnable in a short window.</strong> The R&amp;W section tests a finite system: 4 domains, 6 trap types, and roughly 650 high-frequency words. Every skill is teachable and measurable. Math, by contrast, requires building on years of prior knowledge — a longer arc that can't be compressed into five days.</span>
+        </li>
+        <li>
+          <span class="rb">2</span>
+          <span><strong>Sharper reading raises your math score too.</strong> Many SAT math errors aren't calculation mistakes — they're misreadings of the question. Students who build strong reading precision in English find their math word problem accuracy rises as a direct result. English prep is never wasted.</span>
+        </li>
+        <li>
+          <span class="rb">3</span>
+          <span><strong>A solid English floor makes your total score resilient.</strong> When you know your R&amp;W baseline is 680 or above, you approach math with confidence rather than anxiety. Balanced composite scores also read more consistently to admissions officers than one section propping up a weak one.</span>
+        </li>
+        <li>
+          <span class="rb">4</span>
+          <span><strong>Spring Break is the right time to build this foundation.</strong> AP season begins in May. Once it does, bandwidth for SAT prep collapses. Five focused days on English now creates the score base you build math on top of — in the order that actually works.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- AP CONTEXT -->
+<div class="ap-band reveal">
+  <div class="ap-inner">
+    <div class="ap-text">
+      <h3>The Window Before AP Season</h3>
+      <p>
+        AP exams typically begin in early May — and once that season starts, 
+        meaningful SAT preparation becomes nearly impossible. Spring Break is 
+        the <strong>last clear, uninterrupted stretch</strong> before AP prep 
+        consumes everything. Students who use it to lock in their English score 
+        can approach their next SAT date with one section already settled, 
+        freeing all their post-AP energy for math. This is the sequence that 
+        actually produces composite score gains — and spring break is exactly 
+        when it should happen.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 1:1 TEACHING -->
+<div class="teaching reveal">
+  <div class="teaching-inner">
+    <div class="teaching-copy">
+      <span class="s-label">How We Teach</span>
+      <h2>Not a course.<br><em>Your teacher.</em></h2>
+      <p>
+        Every student in the 5-Day Intensive receives <strong style="color:rgba(255,255,255,0.88)">two dedicated 1:1 sessions</strong> with their instructor — not a video playlist, not a forum, not a chatbot. A real teacher who knows your score, your patterns, and your AP timeline.
+      </p>
+      <p>
+        <strong style="color:rgba(255,255,255,0.88)">Session 1</strong> happens on Day 1 — after you complete the diagnostic. Your instructor reviews your baseline, identifies your two weakest domains, and sets your personalized plan for the five days.
+      </p>
+      <p>
+        <strong style="color:rgba(255,255,255,0.88)">Session 2</strong> happens on Day 5 — after your full simulation. Your instructor walks through your Error DNA results, explains your exact score trajectory, and builds your go-forward plan for the next test date.
+      </p>
+      <p>
+        The platform handles the drilling. The two sessions handle everything that drilling alone can't — the diagnosing, the explaining, and the adjusting that turns practice into points.
+      </p>
+    </div>
+    <div class="tc-cards">
+      <div class="tc-card">
+        <div>
+          <h4>2 Dedicated 1:1 Sessions</h4>
+          <p>Two structured sessions with your personal instructor — one at the start to set your plan, one at the end to lock in your score trajectory. Everything in between is guided by what those sessions uncover.</p>
+        </div>
+      </div>
+      <div class="tc-card">
+        <div>
+          <h4>Session 1 — Day 1 Diagnostic Review</h4>
+          <p>Your instructor reviews your baseline results, identifies your two weakest domains, and builds your personalized 5-day plan around exactly what you need — not a generic program.</p>
+        </div>
+      </div>
+      <div class="tc-card">
+        <div>
+          <h4>Session 2 — Day 5 Score Debrief</h4>
+          <p>After your full simulation, your instructor walks through your Error DNA results, explains your 680 gap, and maps out your go-forward plan for the next test date.</p>
+        </div>
+      </div>
+      <div class="tc-card">
+        <div>
+          <h4>Available Between Sessions</h4>
+          <p>Questions don't only come up during scheduled time. Students can reach their instructor between sessions for clarification, strategy, or a quick check-in throughout the five days.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5-DAY PLAN -->
+<div class="days-bg reveal">
+  <div class="days-wrap">
+    <span class="s-label">The Plan</span>
+    <h2 class="sec-title">Five days.<br><em>Zero wasted time.</em></h2>
+    <p class="sec-desc">Each day has a theme, a morning block, afternoon block, and evening sprint. Every session is pre-built. You just show up.</p>
+    <div class="days-grid">
+      <div class="day-card reveal d1">
+        <div class="day-num">01</div>
+        <div class="day-theme">Foundation &amp; Diagnosis</div>
+        <div class="day-focus">Know where you stand before studying a single word. Your baseline shapes every day that follows.</div>
+        <div class="day-tasks">
+          <div class="day-task">Full domain diagnostic</div>
+          <div class="day-task">22 Latin &amp; Greek roots</div>
+          <div class="day-task">Real-test vocab sprint</div>
+        </div>
+      </div>
+      <div class="day-card reveal d2">
+        <div class="day-num">02</div>
+        <div class="day-theme">Vocabulary &amp; Words in Context</div>
+        <div class="day-focus">Master all 7 WIC question types — the most frequently tested skill in R&amp;W.</div>
+        <div class="day-tasks">
+          <div class="day-task">7 WIC question types</div>
+          <div class="day-task">Connotation &amp; register</div>
+          <div class="day-task">Trap pattern drills</div>
+        </div>
+      </div>
+      <div class="day-card reveal d3">
+        <div class="day-num">03</div>
+        <div class="day-theme">Grammar, Conventions &amp; Transitions</div>
+        <div class="day-focus">The 10 rules covering 90% of SEC questions. No more punctuation guessing.</div>
+        <div class="day-tasks">
+          <div class="day-task">10 grammar rules</div>
+          <div class="day-task">Transition logic map</div>
+          <div class="day-task">SEC full domain drill</div>
+        </div>
+      </div>
+      <div class="day-card reveal d4">
+        <div class="day-num">04</div>
+        <div class="day-theme">Information &amp; Ideas + Strategy</div>
+        <div class="day-focus">Evidence-based questions, quantitative reasoning, and 8 reading strategies for time pressure.</div>
+        <div class="day-tasks">
+          <div class="day-task">Evidence pairs mastery</div>
+          <div class="day-task">8 reading strategies</div>
+          <div class="day-task">Cross-text connections</div>
+        </div>
+      </div>
+      <div class="day-card reveal">
+        <div class="day-num">05</div>
+        <div class="day-theme">Full Simulation &amp; Error Analysis</div>
+        <div class="day-focus">Test conditions. Error pattern analysis. Personal repair plan. You leave knowing your score trajectory.</div>
+        <div class="day-tasks">
+          <div class="day-task">Timed full simulation</div>
+          <div class="day-task">Error pattern analysis</div>
+          <div class="day-task">Score projection &amp; plan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REAL SAT ANALYSIS SECTION -->
+<div style="background:var(--ink);padding:72px 60px;" class="reveal">
+  <div style="max-width:1100px;margin:0 auto;">
+    <span class="s-label" style="color:var(--sage-lt);">Built From Real Tests</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:300;line-height:1.15;color:#fff;margin-bottom:18px;">
+      Every question backed by<br><em style="font-style:italic;color:var(--sage-lt);">actual SAT data.</em>
+    </h2>
+    <p style="font-size:14px;font-weight:300;color:rgba(255,255,255,0.55);max-width:580px;line-height:1.85;margin-bottom:48px;">
+      The platform includes a detailed analysis of the five most recent SAT administrations — 
+      US and International. Every practice question, trap drill, and vocabulary list is 
+      calibrated against what the College Board actually tested. This is not generic prep content.
+    </p>
+
+    <!-- Test tiles -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:40px;">
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(90,122,82,0.25);border-radius:8px;padding:18px 14px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-lt);margin-bottom:8px;">US</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff;line-height:1.2;margin-bottom:6px;">Dec 2025</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5;">WIC trending harder. BELIE, RECAPITULATE, NOMINAL confirmed.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(90,122,82,0.25);border-radius:8px;padding:18px 14px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-lt);margin-bottom:8px;">US</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff;line-height:1.2;margin-bottom:6px;">Nov 2025</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5;">Long scientific sentence trap. INTERPLAY, DELINEATE, ESCHEW.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,123,106,0.3);border-radius:8px;padding:18px 14px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#e09080;margin-bottom:8px;">INTL</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff;line-height:1.2;margin-bottom:6px;">Dec 2025</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5;">Academic verb cluster. EVINCE, HETEROGENEOUS, AUTONOMOUS.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(90,122,82,0.25);border-radius:8px;padding:18px 14px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-lt);margin-bottom:8px;">US</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff;line-height:1.2;margin-bottom:6px;">Mar 2025</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5;">Appearance vs. reality cluster. OSTENSIBLE, SPECIOUS, EPHEMERAL.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(201,123,106,0.3);border-radius:8px;padding:18px 14px;text-align:center;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#e09080;margin-bottom:8px;">INTL</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff;line-height:1.2;margin-bottom:6px;">Jan 2025</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.35);line-height:1.5;">Academic register. TENDENTIOUS, COGENT, ANOMALOUS, NASCENT.</div>
+      </div>
+    </div>
+
+    <!-- What the analysis reveals -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(90,122,82,0.2);border-radius:8px;padding:22px 20px;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-lt);margin-bottom:10px;">Confirmed Vocabulary</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#fff;line-height:1;margin-bottom:8px;">19 words</div>
+        <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.65;">Confirmed to have appeared on Nov or Dec 2025 tests. Flagged in the vocabulary builder as high priority. The quiz loads these first.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(90,122,82,0.2);border-radius:8px;padding:22px 20px;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-lt);margin-bottom:10px;">Top Trap — All 5 Tests</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#fff;line-height:1;margin-bottom:8px;">35% of errors</div>
+        <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.65;">The Too Extreme trap accounted for 35% of wrong answers across all five recent tests. Mastering one trap pattern alone adds an estimated 8 points to your R&W score.</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(90,122,82,0.2);border-radius:8px;padding:22px 20px;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-lt);margin-bottom:10px;">Grammar Shift Confirmed</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#fff;line-height:1;margin-bottom:8px;">+15% clauses</div>
+        <div style="font-size:12px;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.65;">Subject-verb agreement has nearly disappeared from recent tests, replaced by essential vs. non-essential clause questions — up 15% in late 2025 administrations.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER -->
+<div style="display:flex;align-items:center;gap:20px;padding:0 60px;margin:52px 0">
+  <div style="flex:1;height:1px;background:var(--border)"></div>
+  <span style="font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.4em;text-transform:uppercase;color:var(--sage)">Platform Features</span>
+  <div style="flex:1;height:1px;background:var(--border)"></div>
+</div>
+
+<!-- FEATURES -->
+<div class="feats-bg reveal" style="padding-top:0">
+  <div class="feats-wrap">
+    <span class="s-label">What's Included</span>
+    <h2 class="sec-title">Every tool unlocked.<br><em>Nothing held back.</em></h2>
+    <p class="sec-desc">Premium and Intensive plans give you the complete platform — built around how the College Board actually writes tests.</p>
+    <div class="feats-grid">
+      <div class="feat-card reveal d1">
+        <div class="feat-name">Error DNA</div>
+        <div class="feat-desc">Answer 12 diagnostic questions. The system identifies your exact error pattern — Too Extreme, Contrast Signal Miss, Scope Drift — and builds a ranked 3-step repair plan with data from recent real tests.</div>
+        <div class="feat-badge">Personalized Analysis</div>
+      </div>
+      <div class="feat-card reveal d2">
+        <div class="feat-name">Passage Autopsy</div>
+        <div class="feat-desc">Paste any SAT passage. The system dissects it sentence by sentence — structure, vocabulary targets, trap meanings — and predicts which questions the College Board will ask from it.</div>
+        <div class="feat-badge">Passage Dissection</div>
+      </div>
+      <div class="feat-card reveal d3">
+        <div class="feat-name">5 Full Practice Tests</div>
+        <div class="feat-desc">27 questions each. 32-minute timer. Blue Book format. After each test: 680 Goal tracking, per-domain comparison to real Nov/Dec 2025 tests, and a ranked action plan to close your gap.</div>
+        <div class="feat-badge">680 Goal System</div>
+      </div>
+      <div class="feat-card reveal d1">
+        <div class="feat-name">653-Word Vocabulary</div>
+        <div class="feat-desc">Every word tagged by difficulty, etymology, and real-test status. 19 confirmed words from Nov/Dec 2025 tests are flagged as priority. The quiz automatically loads these first.</div>
+        <div class="feat-badge">Real-Test Tagged</div>
+      </div>
+      <div class="feat-card reveal d2">
+        <div class="feat-name">Adaptive Practice</div>
+        <div class="feat-desc">Unlimited passages calibrated to your question type and difficulty level. Every wrong answer surfaces a trap-named explanation — so you understand exactly why you missed it, not just what the right answer is.</div>
+        <div class="feat-badge">Unlimited</div>
+      </div>
+      <div class="feat-card reveal d3">
+        <div class="feat-name">SAT Quest — Full Game</div>
+        <div class="feat-desc">Compete on the global leaderboard. Run 1v1 Duels. Survive Battle Royale. Defeat 4 domain bosses. Daily missions built from real test patterns. Your skill map tracks weakness by question type after every session.</div>
+        <div class="feat-badge">Full Access</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-section reveal">
+  <div class="quote-inner">
+    <blockquote>
+      Spring Break is five days. The SAT is one morning.<br>One builds the other.
+    </blockquote>
+    <div class="quote-src">5-Day SAT English Intensive · PrepnowSAT</div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div class="pricing-section reveal">
+  <div class="pricing-inner">
+    <div class="pricing-copy">
+      <span class="s-label">Get Access</span>
+      <h2>The break that<br><em>changes your score.</em></h2>
+      <p>
+        The Spring Break Intensive requires both components below. Each serves a 
+        distinct purpose — the Premium Plan gives you permanent platform access, 
+        and the Intensive Add-On adds the structured sprint and your two 1:1 sessions.
+      </p>
+      <p>
+        The Premium platform <strong>never expires</strong> — it stays active after 
+        spring break so you can continue drilling, retake practice tests, and revisit 
+        any tool as you prepare for future SAT dates.
+      </p>
+      <div class="contact-block">
+        <a href="mailto:PrepnowSAT@gmail.com" class="btn-primary" style="text-align:center">Email: PrepnowSAT@gmail.com →</a>
+        <a href="tel:8184543879" class="btn-secondary" style="text-align:center">Call: 818-454-3879</a>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;">
+
+      <!-- Card 1: Premium -->
+      <div class="price-card" style="position:relative;">
+        <div class="price-season" style="background:var(--sage)">Step 1 — Required</div>
+        <div class="price-tier" style="margin-top:14px;">Premium Plan</div>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:4px;">
+          <div class="price-amount">$149</div>
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;color:var(--sage);font-weight:500;background:rgba(90,122,82,0.1);border:1px solid rgba(90,122,82,0.25);padding:3px 10px;border-radius:4px;">NEVER EXPIRES</div>
+        </div>
+        <div class="price-period">Full platform access — yours to keep beyond spring break</div>
+        <ul class="price-features">
+          <li>Analysis of 5 recent SAT administrations — confirmed vocabulary, trap frequencies, grammar shifts</li>
+          <li>19 real-test priority words flagged from Nov/Dec 2025 exams</li>
+          <li>5 full practice tests — 32 min, 27 questions, Blue Book format</li>
+          <li>680 Goal System — gap analysis and action plan after every test</li>
+          <li>Error DNA — personalized error pattern analysis</li>
+          <li>Passage Autopsy — sentence-level passage dissection</li>
+          <li>Adaptive Practice — unlimited question generation</li>
+          <li>653-Word Vocabulary — flashcards, quiz, real-test priority filter</li>
+          <li>SAT Quest Full Game — leaderboard, duels, boss battles</li>
+          <li>Grammar Hacks, Reading Strategies, Elimination Workshop</li>
+          <li>Skill Map — ELO-tracked weakness targeting by question type</li>
+        </ul>
+      </div>
+
+      <!-- Card 2: Intensive Add-On -->
+      <div class="price-card" style="position:relative;">
+        <div class="price-season" style="background:var(--blush)">Step 2 — Required</div>
+        <div class="price-tier" style="margin-top:14px;">5-Day Intensive Add-On</div>
+        <div class="price-amount">$99</div>
+        <div class="price-period">One-time · Structured sprint + instructor access</div>
+        <ul class="price-features">
+          <li>5-Day structured study plan — 3 hrs/day, every session mapped</li>
+          <li>2 dedicated 1:1 instructor sessions:
+            <span style="display:block;margin-top:4px;padding-left:12px;font-size:12px;color:var(--muted);">Session 1 (Day 1) — diagnostic review, personalized plan</span>
+            <span style="display:block;margin-top:2px;padding-left:12px;font-size:12px;color:var(--muted);">Session 2 (Day 5) — simulation debrief, score trajectory + next steps</span>
+          </li>
+          <li>Instructor available between sessions throughout the 5 days</li>
+        </ul>
+      </div>
+
+      <!-- Total -->
+      <div style="background:var(--ink);border-radius:8px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div>
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:4px;">Total Investment</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#fff;line-height:1;">$248</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-top:2px;">Premium + Intensive Add-On</div>
+        </div>
+        <a href="mailto:PrepnowSAT@gmail.com" class="price-cta" style="width:auto;padding:13px 28px;">Request Access →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">SAT English Intensive · PrepnowSAT</div>
+  <div class="footer-links">
+    <a href="/cdn-cgi/l/email-protection#f4a48691849a9b83a7b5a0b49399959d98da979b99"><span class="__cf_email__" data-cfemail="edbd9f889d83829abeacb9ad8a808c8481c38e8280">[email&#160;protected]</span></a>
+    <a href="tel:8184543879">818-454-3879</a>
+    <a href="https://satenglish-pied.vercel.app">satenglish-pied.vercel.app</a>
+  </div>
+  <div style="width:100%;text-align:center;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;color:rgba(255,255,255,0.2);padding-top:16px;border-top:1px solid rgba(255,255,255,0.06);margin-top:8px">
+    &copy; 2026 PrepnowSAT. All rights reserved.
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></
